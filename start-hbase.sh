@@ -7,7 +7,7 @@
 # logs directory
 #
 
-IMAGE_NAME="dajobe/hbase"
+IMAGE_NAME="shlomi/cod"
 CONTAINER_NAME="hbase-docker"
 
 program=$(basename "$0")

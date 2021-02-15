@@ -16,10 +16,10 @@ from subprocess import (check_output, run)
 
 
 # Image
-IMAGE_NAME = 'dajobe/hbase'
+IMAGE_NAME = 'shlomi/cod'
 
 # Docker container name to use
-CONTAINER_NAME = 'hbase-docker'
+CONTAINER_NAME = 'cod'
 
 # Maps to $PWD/data
 DATA_DIR_IN_CONTAINER = '/data'

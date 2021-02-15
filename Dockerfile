@@ -1,19 +1,22 @@
 # HBase in Docker
-#
-# Version 0.5
+
 
 # http://docs.docker.io/en/latest/use/builder/
 
 FROM ubuntu:bionic
-MAINTAINER Dave Beckett <dave@dajobe.org>
+MAINTAINER ShlomiTubul <shlomitub28@hotmail.com>
 
 COPY *.sh /build/
 
 ENV HBASE_VERSION 2.2.4
-
-RUN /build/prepare-hbase.sh && \
+ENV HBASE_PHOENIX_VERSION 2.0
+ENV PHOENIX_VERSION 5.0.0
+ENV PHOENIX_CLASS_PATH /opt/hbase/lib/:/opt/phoenix/
+ENV HADOOP_CONF_DIR /opt/hbase/conf
+ENV PHOENIX_LIB_DIR /opt/phoenix
+RUN /build/prepare-hbase.sh && /build/prepare-phoenix.sh &&\
     cd /opt/hbase && /build/build-hbase.sh \
-    cd / && /build/cleanup-hbase.sh && rm -rf /build
+    cd / && /build/build-phoenix.sh && /build/cleanup-hbase.sh  && rm -rf /build
 
 VOLUME /data
 
@@ -24,6 +27,7 @@ ADD ./zoo.cfg /opt/hbase/conf/zoo.cfg
 ADD ./replace-hostname /opt/replace-hostname
 
 ADD ./hbase-server /opt/hbase-server
+ADD ./cod-start /opt/cod-start
 
 # REST API
 EXPOSE 8080
@@ -38,4 +42,4 @@ EXPOSE 2181
 # HBase Master web UI at :16010/master-status;  ZK at :16010/zk.jsp
 EXPOSE 16010
 
-CMD ["/opt/hbase-server"]
+ENTRYPOINT ["/opt/cod-start"]

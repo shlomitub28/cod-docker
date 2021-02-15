@@ -3,21 +3,33 @@
 
   <property>
      <name>hbase.zookeeper.quorum</name>
-     <value>hbase-docker</value>
+     <value>cod-docker</value>
+  </property>
+  <property>
+     <name>hbase.zookeeper.property.dataDir</name>
+     <value>/data/zk</value>
   </property>
   <property>
     <name>hbase.rootdir</name>
-    <value>file:////data/hbase</value>
+    <value>file:///data/hbase</value>
   </property>
 
   <property>
     <name>hbase.master.info.bindAddress</name>
-    <value>hbase-docker</value>
+    <value>cod-docker</value>
   </property>
 
   <property>
     <name>hbase.regionserver.info.bindAddress</name>
-    <value>hbase-docker</value>
+    <value>cod-docker</value>
   </property>
+  <property>
+    <name>hbase.unsafe.stream.capability.enforce</name>
+    <value>false</value>
+  </property>
+  <property>
+      <name>hbase.cluster.distributed</name>
+      <value>true</value>
+    </property>
 
 </configuration>

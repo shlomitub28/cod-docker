@@ -19,6 +19,7 @@ minimal_apt_get_args='-y --no-install-recommends'
 ## Build time dependencies ##
 
 HBASE_BUILD_PACKAGES="curl"
+PHOENIX_BUILD_PACKAGES="ca-certificates net-tools vim python"
 
 # Core list from docs
 #HBASE_BUILD_PACKAGES="$HBASE_BUILD_PACKAGES "
@@ -28,3 +29,4 @@ HBASE_BUILD_PACKAGES="curl"
 
 ## Run time dependencies ##
 HBASE_RUN_PACKAGES="openjdk-8-jre-headless"
+PHOENIX_DIST="https://downloads.apache.org/phoenix/"
