@@ -25,4 +25,13 @@ More details at https://hub.docker.com/r/shlomitub28/cod-docker
 Run COD docker
 ---------
 
-    $ docker run  --expose 16010 -p 16010:16010  -d -h "cod-docker"  --name cod shlomi:cod
+    $ docker run  --expose 16010 -p 16010:16010  -d -h "cod-docker"  --name cod-docker shlomitub28/cod-docker
+
+Log in the docker
+---------
+
+    $ docker exec -it cod-docker /bin/bash
+
+Run Phoenix sql editor
+---------
+    $ /opt/phoenix/bin/sqlline-thin.py http://cod-docker:8765
