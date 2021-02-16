@@ -32,6 +32,6 @@ Log in the docker
 
     $ docker exec -it cod-docker /bin/bash
 
-Run Phoenix sql editor
+Once loged in to the container, run Phoenix sql editor
 ---------
     $ /opt/phoenix/bin/sqlline-thin.py http://cod-docker:8765

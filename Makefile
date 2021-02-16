@@ -1,4 +1,4 @@
-IMAGE_NAME=shlomi/cod
+IMAGE_NAME=shlomitub28/cod-docker
 IMAGE_TAG=latest
 
 HBASE_VERSION=$(shell awk '/^ENV HBASE_VERSION/ {print $3}' Dockerfile)
